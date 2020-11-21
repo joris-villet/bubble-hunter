@@ -6,10 +6,22 @@ body {
 }
 
 .bubble {
-   --heightSize: 50px;
-   --widthSize: 50px;
+   --heightSize: 0;
+   --widthSize: 0;
+   --randomBottom: 0;
+   --randomLeft: 0;
    height: var(--heightSize);
    width: var(--widthSize);
    border: 1px solid #000;
    border-radius: 50%;
+   position: absolute;
+   bottom: 0;
+   left: var(--randomLeft);
+   animation: 10s linear 0s infinite bubbleFlight;
+}
+
+@keyframes bubbleFlight {
+   0% {bottom: var(--randomBottom); left: 50px;}
+   100% {bottom: 1500px; left: 300px;}
+
 }

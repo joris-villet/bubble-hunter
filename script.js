@@ -3,32 +3,42 @@ window.addEventListener('DOMContentLoaded', () => {
    console.info("document chargé");
 
    const body = document.querySelector('body');
-   const bubble = document.createElement('div');
+   const displayGame = document.createElement('div');
+   body.appendChild(displayGame)
 
-   const randomBubbleSize = Math.round(Math.random() * (80 - 10) + 10);
-   console.log(randomBubbleSize)
+   
 
-   const setup = () => {
+   // Créer une bulle
+   const createBubble = () => {
+
+      const bubble = document.createElement('div');
       bubble.classList.add('bubble');
-      body.appendChild(bubble);
-   }
-
-   setup()
-
-   const btn = document.createElement('button');
-   btn.textContent = "button"
-   body.appendChild(btn);
-
-   btn.addEventListener('click', () => {
+      displayGame.appendChild(bubble);
+      const randomBubbleSize = Math.round(Math.random() * (80 - 10) + 10);
+      const randomBubblePosBottom = Math.round(Math.random() * (800 - 100) + 100);
       bubble.style.setProperty('height', randomBubbleSize + 'px');
       bubble.style.setProperty('width', randomBubbleSize + 'px');
-   });
+      bubble.style.setProperty('bottom', randomBubblePosBottom + 'px');
+      console.log(randomBubblePosBottom);   
+   }
+
+   
+   // Exploser une bulle
+   const removeBubble = (e) => displayGame.removeChild(e.target)
+   
+
+   // Ecouteur d'événements
+   const callToAction = () => {
+      document.querySelector('.addBubble').addEventListener('click', createBubble);
+      displayGame.addEventListener('click', removeBubble);  
+   }
+
+   
+
+   // console.log(window.screenX)
+   // console.log(window.screenY)
 
 
-
-
-
-
-
+   callToAction();
 
 });
