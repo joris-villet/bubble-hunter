@@ -4,9 +4,30 @@ body {
    padding: 0;
    box-sizing: border-box;
    overflow: hidden;
+   background: url('https://images.wallpaperscraft.com/image/dandelions_flowers_blur_background_95540_1920x1080.jpg') no-repeat;
+   background-size: cover;
 }
 
+
+
+
 .bubble {
+   cursor: crosshair;
+   height: var(--heightSize);
+   width: var(--widthSize);
+   background: url('./img/bubble.png');
+   background-size: var(--size);
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   animation-duration: var(--speed);
+   animation-name: bubbleFlight;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   animation-delay: 0s;
+}
+
+/* .bubble {
    --heightSize: 0;
    --widthSize: 0;
    --speed: 10s;
@@ -23,12 +44,12 @@ body {
    animation-iteration-count: infinite;
    animation-timing-function: linear;
    animation-delay: 0s;
-}
+} */
 
 @keyframes bubbleFlight {
    from {
       bottom: 0;
-      left: 50vw;
+      left: var(--left);
    }
    to {
       bottom: var(--bottom);
