@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
    const displayGame = document.createElement('div');
    body.appendChild(displayGame)
 
-   
+   const bubbleSpeed = () => Math.round(Math.random() * (20 - 8) + 8);
 
    // Créer une bulle
    const createBubble = () => {
@@ -14,12 +14,14 @@ window.addEventListener('DOMContentLoaded', () => {
       const bubble = document.createElement('div');
       bubble.classList.add('bubble');
       displayGame.appendChild(bubble);
-      const randomBubbleSize = Math.round(Math.random() * (80 - 10) + 10);
-      const randomBubblePosBottom = Math.round(Math.random() * (800 - 100) + 100);
+      let randomBubbleSize = Math.round(Math.random() * (80 - 15) + 15);
+      let randomBubblePosBottom = Math.round(Math.random() * (1200 - 100) + 100);
       bubble.style.setProperty('height', randomBubbleSize + 'px');
       bubble.style.setProperty('width', randomBubbleSize + 'px');
-      bubble.style.setProperty('bottom', randomBubblePosBottom + 'px');
-      console.log(randomBubblePosBottom);   
+      bubble.style.setProperty('--bottom', randomBubblePosBottom + 'px');
+      bubble.style.setProperty('--left', randomBubblePosBottom + 'px');
+      bubble.style.setProperty('animation-duration', bubbleSpeed() + 's');
+      // console.log(randomBubblePosBottom);   
    }
 
    

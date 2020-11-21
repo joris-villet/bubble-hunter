@@ -3,25 +3,37 @@ body {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   overflow: hidden;
 }
 
 .bubble {
    --heightSize: 0;
    --widthSize: 0;
-   --randomBottom: 0;
-   --randomLeft: 0;
+   --speed: 10s;
+   cursor: crosshair;
    height: var(--heightSize);
    width: var(--widthSize);
    border: 1px solid #000;
    border-radius: 50%;
    position: absolute;
    bottom: 0;
-   left: var(--randomLeft);
-   animation: 10s linear 0s infinite bubbleFlight;
+   left: 0;
+   animation-duration: var(--speed);
+   animation-name: bubbleFlight;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   animation-delay: 0s;
 }
 
 @keyframes bubbleFlight {
-   0% {bottom: var(--randomBottom); left: 50px;}
-   100% {bottom: 1500px; left: 300px;}
+   from {
+      bottom: 0;
+      left: 50vw;
+   }
+   to {
+      bottom: var(--bottom);
+      left: var(--left);
+   }
+   
 
 }
