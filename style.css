@@ -1,3 +1,4 @@
+
 body {
    margin: 0;
    padding: 0;
@@ -5,8 +6,10 @@ body {
 }
 
 .bubble {
-   height: 50px;
-   width: 50px;
+   --heightSize: 50px;
+   --widthSize: 50px;
+   height: var(--heightSize);
+   width: var(--widthSize);
    border: 1px solid #000;
    border-radius: 50%;
 }
